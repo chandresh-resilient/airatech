@@ -293,7 +293,7 @@ function App() {
           <a href="#home" className="logo">
             <img
               className="logo-mark"
-              src="https://a3techservices.com/assets/logo.png"
+              src="/src/assets/a3logo.png"
               alt="A3 Services logo"
             />
             <span>A3 Services</span>
