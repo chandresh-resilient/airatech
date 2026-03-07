@@ -182,6 +182,7 @@ function App() {
   const [formData, setFormData] = useState(initialFormState)
   const [formStatus, setFormStatus] = useState({ type: '', message: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isLogoRotating, setIsLogoRotating] = useState(false)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -292,9 +293,15 @@ function App() {
         <div className="topbar-inner container">
           <a href="#home" className="logo">
             <img
-              className="logo-mark"
+              className={`logo-mark ${isLogoRotating ? 'rotating' : ''}`}
               src="/a3logo.png"
               alt="A3 Services logo"
+              onClick={(e) => {
+                e.preventDefault()
+                setIsLogoRotating(true)
+                setTimeout(() => setIsLogoRotating(false), 600)
+              }}
+              style={{ cursor: 'pointer' }}
             />
             <span>A3 Services</span>
           </a>
