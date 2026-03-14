@@ -553,11 +553,11 @@ function App() {
             <p>
               <strong>Phone</strong>
             </p>
-            <p>+1 703-814-3133</p>
+            <p>+91 8087462790</p>
             <p>
               <strong>Email</strong>
             </p>
-            <p>info@a3techservice.com</p>
+            <p>admin@a3techservices.com </p>
             <p>
               <strong>Address</strong>
             </p>
