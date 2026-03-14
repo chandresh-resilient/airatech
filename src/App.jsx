@@ -166,7 +166,7 @@ const emailConfig = {
   serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
   templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
   publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-  toEmail: import.meta.env.VITE_CONTACT_TO_EMAIL || 'info@a3techservice.com',
+  toEmail: import.meta.env.VITE_CONTACT_TO_EMAIL || 'admin@a3techservices.com',
 }
 
 const initialFormState = {
@@ -557,7 +557,7 @@ function App() {
             <p>
               <strong>Email</strong>
             </p>
-            <p>info@a3techservice.com</p>
+            <p>admin@a3techservices.com</p>
             <p>
               <strong>Address</strong>
             </p>
