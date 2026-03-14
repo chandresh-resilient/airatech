@@ -553,7 +553,7 @@ function App() {
             <p>
               <strong>Phone</strong>
             </p>
-            <p>+91 8087462790</p>
+            <p>+91 8088818884</p>
             <p>
               <strong>Email</strong>
             </p>
