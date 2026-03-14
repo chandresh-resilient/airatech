@@ -561,7 +561,7 @@ function App() {
             <p>
               <strong>Address</strong>
             </p>
-            <p>3812 Pineland St, Fairfax, VA 22031</p>
+            <p>4th Floor, Xeno Space, Madhapur, Hyderabad, Telangana 500081</p>
           </div>
           <form className="contact-form" onSubmit={handleFormSubmit} noValidate>
             <div className="contact-row">
