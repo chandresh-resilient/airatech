@@ -1,6 +1,8 @@
+
 import './App.css'
 
 import { useEffect, useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 const navItems = [
   { id: 'capabilities', label: 'Services' },
@@ -162,12 +164,10 @@ const leaderStats = [
   { value: 'Mon-Fri', label: '9:00 AM - 5:00 PM' },
 ]
 
-const emailConfig = {
-  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-  toEmail: import.meta.env.VITE_CONTACT_TO_EMAIL || 'admin@a3techservices.com',
-}
+const SERVICE_ID = 'A3Services'
+const CONTACT_TEMPLATE_ID = 'template_agv3wr4'
+const AUTO_REPLY_TEMPLATE_ID = 'template_jcb8l7j'
+const PUBLIC_KEY = 'Ed7bOT0b8h7VM3c0w'
 
 const initialFormState = {
   fullName: '',
@@ -209,6 +209,8 @@ function App() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault()
+    // Guard against rapid multi-click submissions.
+    if (isSubmitting) return
 
     const trimmedData = {
       fullName: formData.fullName.trim(),
@@ -217,10 +219,16 @@ function App() {
       message: formData.message.trim(),
     }
 
-    if (!trimmedData.fullName || !trimmedData.email || !trimmedData.message) {
+    // Validate required fields, including phone as requested.
+    if (
+      !trimmedData.fullName ||
+      !trimmedData.email ||
+      !trimmedData.phone ||
+      !trimmedData.message
+    ) {
       setFormStatus({
         type: 'error',
-        message: 'Please fill in full name, email, and requirement details.',
+        message: 'Please fill in full name, email, phone, and requirement details.',
       })
       return
     }
@@ -234,13 +242,12 @@ function App() {
     }
 
     const hasEmailConfig =
-      emailConfig.serviceId && emailConfig.templateId && emailConfig.publicKey
+      SERVICE_ID && CONTACT_TEMPLATE_ID && AUTO_REPLY_TEMPLATE_ID && PUBLIC_KEY
 
     if (!hasEmailConfig) {
       setFormStatus({
         type: 'error',
-        message:
-          'Email integration is not configured yet. Add EmailJS keys in .env to enable sending.',
+        message: 'Email integration is not configured correctly.',
       })
       return
     }
@@ -249,35 +256,40 @@ function App() {
     setFormStatus({ type: '', message: '' })
 
     try {
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          service_id: emailConfig.serviceId,
-          template_id: emailConfig.templateId,
-          user_id: emailConfig.publicKey,
-          template_params: {
-            to_email: emailConfig.toEmail,
-            from_name: trimmedData.fullName,
-            from_email: trimmedData.email,
-            phone: trimmedData.phone || 'Not provided',
-            message: trimmedData.message,
-          },
-        }),
-      })
-
-      if (!response.ok) {
-        throw new Error('Email request failed')
+      const templateParams = {
+        name: trimmedData.fullName,
+        email: trimmedData.email,
+        phone: trimmedData.phone,
+        message: trimmedData.message,
       }
+
+      console.log('Submitting contact form with params:', templateParams)
+
+      // 1) Send contact email to admin/company (template configured in EmailJS dashboard).
+      const contactResponse = await emailjs.send(
+        SERVICE_ID,
+        CONTACT_TEMPLATE_ID,
+        templateParams,
+        PUBLIC_KEY,
+      )
+      console.log('Contact email sent:', contactResponse)
+
+      // 2) Send auto-reply email to user (template should use {{email}} as recipient variable).
+      const autoReplyResponse = await emailjs.send(
+        SERVICE_ID,
+        AUTO_REPLY_TEMPLATE_ID,
+        templateParams,
+        PUBLIC_KEY,
+      )
+      console.log('Auto-reply email sent:', autoReplyResponse)
 
       setFormData(initialFormState)
       setFormStatus({
         type: 'success',
         message: 'Thank you. Your request has been sent successfully.',
       })
-    } catch {
+    } catch (error) {
+      console.error('EmailJS submission failed:', error)
       setFormStatus({
         type: 'error',
         message: 'Unable to send your request right now. Please try again shortly.',
