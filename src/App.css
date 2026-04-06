@@ -399,7 +399,8 @@
 .data-bars span {
   flex: 1;
   border-radius: 5px 5px 2px 2px;
-  background: linear-gradient(to top, #16a6ff, #79e8ff);
+  background: linear-gradient(to top, #6E612E, #CBB76A);
+  box-shadow: 0 4px 10px rgba(183, 160, 85, 0.2);
   animation: barRise 1.8s ease-in-out infinite alternate;
 }
 
@@ -425,15 +426,15 @@
 
 .hero-float-chip {
   position: absolute;
-  border: 1px solid rgba(146, 210, 255, 0.5);
+  border: 1px solid rgba(183, 160, 85, 0.3);
   border-radius: 999px;
   padding: 0.36rem 0.72rem;
-  background: rgba(8, 33, 60, 0.82);
-  color: #b8ddff;
+  background: rgba(20, 20, 20, 0.85);
+  color: #B7A055;
   font-size: 0.72rem;
   font-weight: 600;
   white-space: nowrap;
-  box-shadow: 0 10px 18px rgba(0, 9, 27, 0.4);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.45);
 }
 
 .chip-one {
