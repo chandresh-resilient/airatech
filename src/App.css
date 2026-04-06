@@ -904,7 +904,7 @@
 .contact-meta {
   margin-top: 1rem;
   text-align: center;
-  color: #9eb9d4;
+  color: #FFFFFF;
 }
 
 .contact-meta p {
@@ -926,17 +926,17 @@
 
 .contact-form input,
 .contact-form textarea {
-  border: 1px solid rgba(103, 164, 248, 0.4);
+  border: 1px solid rgba(183, 160, 85, 0.25);
   border-radius: 8px;
   padding: 0.72rem 0.8rem;
   font: inherit;
-  color: #f0f7ff;
-  background: rgba(8, 24, 42, 0.82);
+  color: #FFFFFF;
+  background: rgba(20, 20, 20, 0.85);
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: #8daecc;
+  color: rgba(220, 232, 255, 0.6);
 }
 
 .form-status {
@@ -968,7 +968,7 @@
   border-top: 1px solid rgba(116, 182, 255, 0.26);
   text-align: center;
   padding: 1.2rem;
-  color: #DCE8FF;
+  color: #FFFFFF;
   font-weight: 600;
   background:#B7A055;
 ;
