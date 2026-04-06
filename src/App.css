@@ -1,6 +1,6 @@
 .site {
-  background: #060d18;
-  color: #dce8ff;
+  background: #6E612E ;
+  color: #B7A055;
   position: relative;
   overflow-x: hidden;
 }
@@ -20,7 +20,7 @@
   height: 420px;
   left: -120px;
   top: -120px;
-  background: #0f8fff;
+  background: #B7A055;
 }
 
 .site::after {
@@ -28,7 +28,7 @@
   height: 460px;
   right: -140px;
   top: 280px;
-  background: #00d8ff;
+  background:#DCE8FF;
 }
 
 .container {
@@ -42,8 +42,8 @@
   width: 100%;
   z-index: 30;
   backdrop-filter: blur(12px);
-  background: rgba(6, 13, 24, 0.65);
-  border-bottom: 1px solid rgba(126, 186, 255, 0.26);
+  background: #B7A055;
+ border-bottom: 1px solid rgba(183, 160, 85, 0.25);
   padding: 0.4rem 0;
 }
 
@@ -63,14 +63,14 @@
   font-family: 'Sora', sans-serif;
   font-size: 1.25rem;
   font-weight: 800;
-  color: #8ed7ff;
+  color: #FFFFFF;
   letter-spacing: 0.03em;
   line-height: 1;
 }
 
 .logo-mark {
-  width: 34px;
-  height: 34px;
+  width: 99px;
+  height: 70px;
   object-fit: contain;
   border-radius: 7px;
   transition: transform 0.6s ease;
@@ -106,7 +106,7 @@
 }
 
 .menu a {
-  color: #cde5ff;
+  color: #FFFFFF;
   font-weight: 600;
   font-size: 0.9rem;
   white-space: nowrap;
@@ -198,7 +198,7 @@
   font-size: 0.82rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #75d9ff;
+  color: #FFFFFF;
   font-weight: 700;
 }
 
@@ -429,16 +429,18 @@
   transform: translateY(-2px);
 }
 
+/* ✅ PRIMARY BUTTON (GOLD THEME) */
 .btn.primary {
-  color: #fff;
-  background: linear-gradient(135deg, #0a88ff, #19c4ff);
-  box-shadow: 0 16px 30px rgba(20, 155, 246, 0.33);
+  color: #000;
+  background: linear-gradient(135deg, #B7A055, #6E612E);
+  box-shadow: 0 16px 30px rgba(183, 160, 85, 0.35);
 }
 
+/* ✅ GHOST BUTTON (SUBTLE GOLD) */
 .btn.ghost {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.45);
+  color: #B7A055;
+  background: rgba(183, 160, 85, 0.08);
+  border-color: rgba(183, 160, 85, 0.45);
 }
 
 .btn-top {
@@ -447,7 +449,6 @@
   padding: 0.66rem 1rem;
   margin-left: 0.2rem;
 }
-
 .menu-mobile-cta {
   display: none;
 }
@@ -495,7 +496,7 @@
   margin: 0.95rem auto 0;
   max-width: 780px;
   text-align: center;
-  color: #a4bbd4;
+  color: #FFFFFF;
   line-height: 1.7;
 }
 
@@ -919,9 +920,10 @@
   border-top: 1px solid rgba(116, 182, 255, 0.26);
   text-align: center;
   padding: 1.2rem;
-  color: #98b8d7;
+  color: #DCE8FF;
   font-weight: 600;
-  background: rgba(5, 12, 23, 0.7);
+  background:#B7A055;
+;
 }
 
 @media (max-width: 1000px) {

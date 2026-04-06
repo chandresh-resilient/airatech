@@ -306,7 +306,7 @@ function App() {
           <a href="#home" className="logo">
             <img
               className={`logo-mark ${isLogoRotating ? 'rotating' : ''}`}
-              src="/a3logo.png"
+              src="/a3logo.jpeg"
               alt="A3 Services logo"
               onClick={(e) => {
                 e.preventDefault()
